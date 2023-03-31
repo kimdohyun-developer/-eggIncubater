@@ -80,12 +80,13 @@ if(millis()-timeVal>=1000){
     d1 =0;
     d2 =0;
     d3 =0;
+    timeVal = 0; //오버플로우방지
 
 
     //외부에 모터를 달고 전란을 할 수 있는 구조로 만든다면 이렇게 자동으로 굴릴 수 도 있음. 대신 모터의 힘이 강해야 함.
 // if(myServo.read()==0){
 //       for(int i =0; i<=180; i++){
-//         if(millis()-timeVal>=50){
+//         if(millis()-timeVal>=50){ //천천히 회전시키기 위해 50으로 함. 숫자를 늘리면 더 천천히 돌릴 수 있음.
 //         myServo.write(i);
 //         }
 //       }
@@ -133,7 +134,7 @@ if(t<=0){
 
 
 
-  int  h = dht.readHumidity()-100;   //습도값을 대입
+  int  h = dht.readHumidity();   //습도값을 대입
   // Serial.print("Temperture: ");
   // Serial.print(t);
   // Serial.print(" C ");
